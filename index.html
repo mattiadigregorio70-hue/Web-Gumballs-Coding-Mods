@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gumball's AI Generator</title>
+    <meta
+      name="description"
+      content="Gumball's AI Generator — build a little extra web and browse AI video, image, and music models."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=DM+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">G</div>
+          <div class="brand-copy">
+            <span class="brand-name">gumball.ai</span>
+            <span class="brand-tag">generator studio</span>
+          </div>
+        </div>
+        <button class="nav-pill">AI Models</button>
+      </header>
+
+      <main class="layout">
+        <section class="panel panel-main">
+          <p class="eyebrow">✦ build a little extra web</p>
+          <h1>Gumball's<br /><span>AI Generator</span></h1>
+          <p class="intro">
+            Turn a wild idea into a tiny website. Describe the concept, choose a vibe,
+            and instantly generate a playful web experience with a built-in model catalog.
+          </p>
+
+          <div class="field-block">
+            <label for="prompt">Describe your idea</label>
+            <textarea id="prompt" maxlength="500" placeholder="A dreamy weather app where the sky changes based on your mood..."></textarea>
+            <div class="field-meta">
+              <span id="char-count">0 / 500</span>
+              <span>Use a mood, color, or interaction</span>
+            </div>
+          </div>
+
+          <div class="quick-chips">
+            <button class="chip" data-prompt="A retro arcade game where a cat catches falling stars">🎮 mini game</button>
+            <button class="chip" data-prompt="A dreamy music player that glows in the night sky">✨ music app</button>
+            <button class="chip" data-prompt="A surreal weather site that only shows perfect rainy afternoons">🌧️ weather vibe</button>
+          </div>
+
+          <div class="controls">
+            <div class="vibe-box">
+              <span class="label-small">vibe</span>
+              <div class="vibe-options" role="group" aria-label="Pick a vibe">
+                <button class="vibe-option active" data-vibe="playful">Playful</button>
+                <button class="vibe-option" data-vibe="neon">Neon</button>
+                <button class="vibe-option" data-vibe="calm">Calm</button>
+              </div>
+            </div>
+
+            <button id="generate" class="generate-button">
+              <span class="button-spark">✦</span>
+              <span class="button-label">Generate web</span>
+            </button>
+          </div>
+        </section>
+
+        <aside class="panel panel-side">
+          <div class="side-head">
+            <div>
+              <p class="eyebrow eyebrow-small">AI model catalog</p>
+              <h2>Creator toolkit</h2>
+            </div>
+            <span class="pill-count" id="model-count">0 models</span>
+          </div>
+
+          <div id="model-list" class="model-list" aria-live="polite"></div>
+        </aside>
+      </main>
+
+      <section id="result" class="result hidden">
+        <div class="result-header">
+          <div>
+            <p class="eyebrow eyebrow-small">web preview</p>
+            <h3>Fresh from the imagination engine</h3>
+          </div>
+          <div class="result-actions">
+            <button id="copy-code" class="secondary-button">Copy code</button>
+            <button id="download" class="primary-button">Download</button>
+          </div>
+        </div>
+
+        <div class="result-subtitle" id="result-subtitle"></div>
+
+        <div class="code-box">
+          <div class="code-toolbar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <div class="tabs">
+              <button class="tab active" data-tab="html">index.html</button>
+              <button class="tab" data-tab="css">style.css</button>
+              <button class="tab" data-tab="js">script.js</button>
+            </div>
+          </div>
+          <pre id="code-output"></pre>
+        </div>
+
+        <div class="preview-box">
+          <div class="preview-label">Preview</div>
+          <iframe id="preview" title="Generated webpage preview" sandbox="allow-scripts"></iframe>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
